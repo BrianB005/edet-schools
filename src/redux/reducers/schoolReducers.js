@@ -4,7 +4,7 @@ import {
   GET_ALL_SCHOOLS_SUCCESS,
 } from "../constants/schoolConstants";
 
-export const getAllSchoolsReducer = (state = {}, action) => {
+export const searchSchoolsReducer = (state = {}, action) => {
   switch (action.type) {
     case GET_ALL_SCHOOLS_REQUEST:
       return { ...state, loading: true };

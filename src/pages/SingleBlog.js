@@ -13,7 +13,6 @@ const SingleBlog = () => {
   const { blogs } = useSelector((state) => state.blogs);
 
   const blog = blogs?.find((blog) => blog._id === blogId);
-
   return (
     <Wrapper>
       <Navbars>

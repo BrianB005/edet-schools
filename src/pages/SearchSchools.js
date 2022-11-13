@@ -1,5 +1,7 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import styled from "styled-components";
+import Loader from "../components/Loader";
 import NavbarOne from "../components/NavbarOne";
 import NavbarTwo from "../components/NavbarTwo";
 import Searchbar from "../components/Searchbar";
@@ -7,13 +9,7 @@ import Searchbar from "../components/Searchbar";
 import SearchResult from "../components/SearchResult";
 
 const SearchSchools = () => {
-  const searchCategories = [
-    { id: 1, title: "Secondary schools", url: "/secondary_schools" },
-    { id: 2, title: "Tutoring facilties", url: "/tutoring_facilties" },
-    { id: 3, title: "Proprietors", url: "/proprietors" },
-    { id: 4, title: "Award winning schools", url: "/awards" },
-    { id: 4, title: "Award winning schools", url: "/awards" },
-  ];
+  const { loading, schools } = useSelector((state) => state.schools);
 
   return (
     <Wrapper>
@@ -32,9 +28,15 @@ const SearchSchools = () => {
         <Searchbar />
 
         <Schools>
-          {searchCategories.map((category) => (
-            <SearchResult title={category.title} key={category.id} />
-          ))}
+          {loading ? (
+            <Loader />
+          ) : schools?.length === 0 ? (
+            <h1>No schools matched your query</h1>
+          ) : (
+            schools?.map((school) => (
+              <SearchResult key={school._id} {...school} />
+            ))
+          )}
         </Schools>
       </ContentWrapper>
     </Wrapper>

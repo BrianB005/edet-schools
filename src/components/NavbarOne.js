@@ -17,9 +17,9 @@ const NavbarOne = () => {
 
         <User>
           <div className="icon_wrapper">
-            <div className="icon">
-              <BsPersonCircle />
-            </div>
+            {/* <div className="icon"> */}
+            <BsPersonCircle />
+            {/* </div> */}
           </div>
           <div className="carousel">
             <MdKeyboardArrowDown />
@@ -103,13 +103,15 @@ const User = styled.div`
   .icon_wrapper {
     width: 25px;
     height: 25px;
-    display: grid;
-    place-items: center;
-    margin-right: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* margin-right: 4px; */
     border-radius: 50%;
     background: #ffffff;
     &.icon {
       width: 17px;
+      margin: 0;
       height: 17px;
       color: #000;
     }
