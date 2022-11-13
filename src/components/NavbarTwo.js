@@ -7,7 +7,9 @@ import { Link } from "react-router-dom";
 const NavbarTwo = () => {
   return (
     <Wrapper>
-      <Logo src={school_logo} alt="Logo" />
+      <Link to="/">
+        <Logo src={school_logo} alt="Logo" />
+      </Link>
       <Links>
         {pageLinks.map((pageLink) => (
           <Link to={pageLink.url}>

@@ -11,8 +11,10 @@ import { Link } from "react-router-dom";
 const LandingPage = () => {
   return (
     <Wrapper>
-      <NavbarOne />
-      <NavbarTwo />
+      <Navbars>
+        <NavbarOne />
+        <NavbarTwo />
+      </Navbars>
       <ContentWrapper>
         <Left>
           <Subtitle>WELCOME TO EDET Schools</Subtitle>
@@ -51,6 +53,10 @@ const Wrapper = styled.div`
   flex-direction: column;
   width: 100vw;
   height: 100vh;
+`;
+const Navbars = styled.div`
+  display: flex;
+  flex-direction: column;
 `;
 const ContentWrapper = styled.div`
   width: 100%;
