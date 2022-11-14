@@ -78,6 +78,7 @@ const Wrapper = styled.div`
 
   display: grid;
   grid-column-gap: 20px;
+  padding: 40px 0;
   /* grid-template-columns: repeat(4, 1fr); */
   @media screen and (min-width: 1300px) {
     grid-template-columns: repeat(4, 1fr);
