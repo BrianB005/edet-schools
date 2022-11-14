@@ -54,7 +54,7 @@ const Aside = styled.aside`
   flex-direction: column;
   grid-template-rows: auto, 1fr, auto;
   /* background:rgba(0,0,0,0.2); */
-  background: white;
+  background: #e5e5e5;
   padding: 40px 30px;
   color: #ff0075;
 `;
