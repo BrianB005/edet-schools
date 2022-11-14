@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 import styled from "styled-components";
@@ -6,6 +6,7 @@ import NavbarOne from "../components/NavbarOne";
 import NavbarTwo from "../components/NavbarTwo";
 import Searchbar from "../components/Searchbar";
 import SearchCategory from "../components/SearchCategory";
+import Sidebar from "../components/Sidebar";
 
 const Home = () => {
   const searchCategories = [
@@ -18,11 +19,19 @@ const Home = () => {
     { id: 1, title: "List of schools", url: "/schools" },
     { id: 2, title: "How to register a school", url: "/search_schools" },
   ];
+  const [sidebarOpen, setSidebarOpen] = useState(false);
+  const closeSidebar = () => {
+    setSidebarOpen(false);
+  };
+  const openSidebar = () => {
+    setSidebarOpen(!sidebarOpen);
+  };
   return (
     <Wrapper>
       <Navbars>
         <NavbarOne />
-        <NavbarTwo />
+        <NavbarTwo openSidebar={openSidebar} />
+        <Sidebar closeSidebar={closeSidebar} sidebarOpen={sidebarOpen} />
       </Navbars>
       <ContentWrapper>
         <Intro>
@@ -110,6 +119,10 @@ const ContentWrapper = styled.div`
   flex-direction: column;
   align-self: center;
   margin-bottom: 10px;
+  @media screen and (max-width: 700px) {
+    width: 100%;
+    padding: 0 20px;
+  }
 `;
 const Categories = styled.div`
   display: flex;

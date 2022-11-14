@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import image3 from "../images/image3.jpg";
 import image6 from "../images/image6.jpg";
@@ -8,12 +8,21 @@ import NavbarOne from "../components/NavbarOne";
 import { BsArrowRight } from "react-icons/bs";
 import NavbarTwo from "../components/NavbarTwo";
 import { Link } from "react-router-dom";
+import Sidebar from "../components/Sidebar";
 const LandingPage = () => {
+  const [sidebarOpen, setSidebarOpen] = useState(false);
+  const closeSidebar = () => {
+    setSidebarOpen(false);
+  };
+  const openSidebar = () => {
+    setSidebarOpen(!sidebarOpen);
+  };
   return (
     <Wrapper>
       <Navbars>
         <NavbarOne />
-        <NavbarTwo />
+        <NavbarTwo openSidebar={openSidebar} />
+        <Sidebar closeSidebar={closeSidebar} sidebarOpen={sidebarOpen} />
       </Navbars>
       <ContentWrapper>
         <Left>
@@ -53,6 +62,8 @@ const Wrapper = styled.div`
   flex-direction: column;
   width: 100vw;
   height: 100vh;
+  overflow-y: scroll;
+  overflow-x: hidden;
 `;
 const Navbars = styled.div`
   display: flex;
@@ -124,6 +135,7 @@ const Right = styled.div`
   @media screen and (max-width: 1150px) {
     margin-top: 30px;
     width: 100%;
+    align-items: flex-start;
   }
 `;
 const Subtitle = styled.h2`
@@ -144,12 +156,23 @@ const Title = styled.h1`
   line-height: 80px;
   color: #141414;
   margin-bottom: 20px;
+
+  @media screen and (max-width: 700px) {
+    font-size: 50px;
+    line-height: 50px;
+  }
+  @media screen and (max-width: 500px) {
+    font-size: 45px;
+    line-height: 50px;
+  }
 `;
 const Buttons = styled.div`
   display: flex;
   align-items: center;
   @media screen and (max-width: 1150px) {
-    flex-direction: column;
+    /* flex-direction: column; */
+    align-self: flex-start;
+    align-items: center;
   }
 `;
 const ReadBlog = styled.a`
@@ -182,16 +205,21 @@ const ReadBlog = styled.a`
 const Image1 = styled.img`
   width: 250px;
   height: 250px;
-
   margin-right: 20px;
   border-radius: 15px;
   object-fit: cover;
+  @media screen and (max-width: 500px) {
+    width: 100%;
+  }
 `;
 const Image2 = styled.img`
   width: 200px;
   height: 250px;
   object-fit: cover;
   border-radius: 15px;
+  @media screen and (max-width: 500px) {
+    width: 100%;
+  }
 `;
 const Image3 = styled.img`
   width: 200px;
@@ -199,16 +227,28 @@ const Image3 = styled.img`
   border-radius: 15px;
   object-fit: cover;
   margin-right: 20px;
+  @media screen and (max-width: 500px) {
+    width: 100%;
+  }
 `;
 const Image4 = styled.img`
   width: 250px;
   height: 200px;
   object-fit: cover;
   border-radius: 15px;
+  @media screen and (max-width: 500px) {
+    width: 100%;
+  }
 `;
 const Images = styled.div`
   display: flex;
   margin-bottom: 20px;
+  width: 100%;
+  @media screen and (max-width: 500px) {
+    display: grid;
+    grid-column-gap: 20px;
+    grid-template-columns: repeat(2, 1fr);
+  }
 `;
 
 export default LandingPage;

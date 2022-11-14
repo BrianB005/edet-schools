@@ -1,15 +1,15 @@
 import React from "react";
 import styled from "styled-components";
-const SingleBlog = ({ image, title, content, createdAt }) => {
+const Event = ({ event_image, title, category, event_date }) => {
   return (
     <Wrapper>
-      <Image src={image?.url} />
+      <Image src={event_image?.url} />
 
       <Title>{title}</Title>
       <Time>
-        <h1>{new Date(createdAt).toDateString()}</h1>
+        <h1>{new Date(event_date).toDateString()}</h1>
         <div></div>
-        <h2>6 min read</h2>
+        <h2>{category}</h2>
       </Time>
     </Wrapper>
   );
@@ -18,12 +18,12 @@ const SingleBlog = ({ image, title, content, createdAt }) => {
 const Wrapper = styled.div`
   cursor: pointer;
   width: 398px;
-  @media screen and (max-width: 1100px) {
-    width: 100%;
-  }
   transition: all 0.6s linear;
   border-radius: 10px;
   box-shadow: 3px 5px 13px #fff;
+  @media screen and (max-width: 1100px) {
+    width: 95%;
+  }
   &:hover {
     box-shadow: 15px 12px 24px #fff;
   }
@@ -90,4 +90,4 @@ const Time = styled.div`
   }
 `;
 
-export default SingleBlog;
+export default Event;

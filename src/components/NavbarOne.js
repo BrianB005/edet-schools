@@ -34,6 +34,9 @@ const Wrapper = styled.div`
   padding-right: 100px;
   height: 80px;
   background: #141414;
+  @media screen and (max-width: 1150px) {
+    display: none;
+  }
   display: flex;
   align-items: center;
   justify-content: flex-end;

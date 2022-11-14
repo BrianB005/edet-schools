@@ -7,6 +7,8 @@ import Home from "./pages/Home";
 import Blog from "./pages/Blog";
 import SearchSchools from "./pages/SearchSchools";
 import SingleBlog from "./pages/SingleBlog";
+import Events from "./pages/Events";
+import SingleEvent from "./pages/SingleEvent";
 function App() {
   return (
     <Router>
@@ -16,8 +18,8 @@ function App() {
         <Route path="/search_schools" element={<SearchSchools />} />
         <Route path="/blog" element={<Blog />} />
         <Route path="/blogs/:blog_id" element={<SingleBlog />} />
-
-        {/* <Route path="/events" element={<Events />} /> */}
+        <Route path="/school/:school_id" element={<Events />} />
+        <Route path="/events/:id" element={<SingleEvent />} />
       </Routes>
     </Router>
   );

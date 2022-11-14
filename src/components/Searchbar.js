@@ -38,6 +38,9 @@ const Wrapper = styled.div`
   height: 55px;
   display: flex;
   z-index: 1000;
+  @media screen and (max-width: 700px) {
+    width: 100%;
+  }
 `;
 
 const Icon = styled.div`

@@ -1,12 +1,18 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import school_logo from "./school_logo.png";
 import styled from "styled-components";
 import { pageLinks } from "../data/pageLinks";
 import { Link } from "react-router-dom";
-
-const NavbarTwo = () => {
+import { FaBars } from "react-icons/fa";
+import useScrollPosition from "@react-hook/window-scroll";
+const NavbarTwo = ({ openSidebar }) => {
+  const [isScrolled, setIsScrolled] = useState(false);
+  const scrollY = useScrollPosition(40);
+  useEffect(() => {
+    setIsScrolled(scrollY > 600 ? "true" : "false");
+  }, [scrollY]);
   return (
-    <Wrapper>
+    <Wrapper fixed={isScrolled}>
       <Link to="/">
         <Logo src={school_logo} alt="Logo" />
       </Link>
@@ -17,6 +23,9 @@ const NavbarTwo = () => {
           </Link>
         ))}
       </Links>
+      <NavToggle>
+        <FaBars onClick={openSidebar} />
+      </NavToggle>
     </Wrapper>
   );
 };
@@ -27,6 +36,24 @@ const Wrapper = styled.div`
   align-items: center;
   justify-content: space-between;
   padding: 0 100px;
+  position: ${({ fixed }) => fixed === "true" && "fixed"};
+  @media screen and (max-width: 1150px) {
+    padding: 0 20px;
+  }
+`;
+const NavToggle = styled.div`
+  cursor: pointer;
+  color: #141414;
+  padding-right: 20px;
+  transition: all 0.6s linear;
+  font-size: 37px;
+  @media screen and (min-width: 800px) {
+    display: none;
+  }
+  &:hover {
+    opacity: 0.7;
+    transform: scale(1.1);
+  }
 `;
 const Logo = styled.img`
   width: 75px;
@@ -36,6 +63,9 @@ const Logo = styled.img`
 `;
 const Links = styled.div`
   display: flex;
+  @media screen and (max-width: 800px) {
+    display: none;
+  }
 `;
 const PageLink = styled.div`
   font-family: "DM Sans";

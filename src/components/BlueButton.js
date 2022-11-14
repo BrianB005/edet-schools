@@ -8,6 +8,9 @@ const Button = styled.button`
   background: #3d3af8;
   border-radius: 10px;
   padding: 14px 40px;
+  @media screen and (max-width: 700px) {
+    padding: 7px 16px;
+  }
   cursor: pointer;
   border: none;
   font-family: "DM Sans";
