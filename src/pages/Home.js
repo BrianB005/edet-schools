@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 import styled from "styled-components";
+import Footer from "../components/Footer";
 import NavbarOne from "../components/NavbarOne";
 import NavbarTwo from "../components/NavbarTwo";
 import Searchbar from "../components/Searchbar";
@@ -59,6 +60,9 @@ const Home = () => {
           ))}
         </Categories>
       </ContentWrapper>
+      <FooterWrapper>
+        <Footer />
+      </FooterWrapper>
     </Wrapper>
   );
 };
@@ -93,6 +97,15 @@ const IntroSubtitle = styled.h2`
   span {
     color: #0074ba;
     cursor: pointer;
+  }
+`;
+const FooterWrapper = styled.div`
+  margin-top: 30px;
+  @media screen and (min-width: 1150px) {
+    padding: 10px 100px;
+  }
+  @media screen and (max-width: 1150px) {
+    padding: 10px 20px;
   }
 `;
 const Title = styled.div`
