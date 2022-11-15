@@ -13,6 +13,7 @@ import LandingSection2 from "../components/LandingSection2";
 import LandingSection3 from "../components/LandingSection3";
 import LandingSection4 from "../components/LandingSection4";
 import Footer from "../components/Footer";
+import FeaturedSchool from "../components/FeaturedSchool";
 const LandingPage = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const closeSidebar = () => {
@@ -65,6 +66,22 @@ const LandingPage = () => {
       </SectionWrapper>
       <SectionWrapper>
         <LandingSection4 />
+      </SectionWrapper>
+      <SectionWrapper>
+        <Featured>
+          <FeaturedTitle>Featured Schools</FeaturedTitle>
+          <FeaturedSchools>
+            <SingleFeaturedSchool>
+              <FeaturedSchool />
+            </SingleFeaturedSchool>
+            <SingleFeaturedSchool>
+              <FeaturedSchool />
+            </SingleFeaturedSchool>
+            <SingleFeaturedSchool>
+              <FeaturedSchool />
+            </SingleFeaturedSchool>
+          </FeaturedSchools>
+        </Featured>
       </SectionWrapper>
       <FooterWrapper>
         <Footer />
@@ -162,6 +179,42 @@ const Left = styled.div`
   width: 50%;
   @media screen and (max-width: 1150px) {
     width: 100%;
+  }
+`;
+
+const Featured = styled.div`
+  display: flex;
+  flex-direction: column;
+  padding: 30px 0;
+`;
+const FeaturedTitle = styled.h1`
+  font-family: "Test Heldane Display", "Dm Serif Display";
+  font-weight: 500;
+  font-size: 64px;
+  line-height: 80px;
+  margin-bottom: 20px;
+  color: #010021;
+  @media screen and (max-width: 800px) {
+    font-size: 40px;
+    line-height: 50px;
+  }
+`;
+const SingleFeaturedSchool = styled.div`
+  width: 80vw;
+  flex: 0 0 auto;
+  margin-right: 20px;
+  @media screen and (max-width: 800px) {
+    width: 95vw;
+  }
+`;
+const FeaturedSchools = styled.div`
+  display: flex;
+  width: 100vw;
+  overflow-x: scroll;
+
+  /* margin-left: -200px; */
+  &::-webkit-scrollbar {
+    display: none;
   }
 `;
 const Right = styled.div`
