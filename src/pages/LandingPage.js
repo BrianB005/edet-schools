@@ -110,6 +110,7 @@ const ContentWrapper = styled.div`
   padding: 0 100px;
   display: flex;
   align-items: center;
+  justify-content: space-between;
   @media screen and (max-width: 1150px) {
     flex-direction: column;
     padding: 0 20px;
@@ -168,6 +169,7 @@ const Right = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-end;
+
   @media screen and (max-width: 1150px) {
     margin-top: 30px;
     width: 100%;
@@ -279,7 +281,7 @@ const Image4 = styled.img`
 const Images = styled.div`
   display: flex;
   margin-bottom: 20px;
-  width: 100%;
+
   @media screen and (max-width: 500px) {
     display: grid;
     grid-column-gap: 20px;
