@@ -102,6 +102,9 @@ const Title = styled.h1`
   line-height: 27px;
 
   margin-bottom: 24px;
+  @media screen and (max-width: 800px) {
+    margin-top: 20px;
+  }
   color: #141414;
 `;
 const Subtitle = styled.h2`

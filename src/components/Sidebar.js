@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 import { FaTimes } from "react-icons/fa";
-
 import SidebarItem from "./SidebarItem";
 import { pageLinks } from "../data/pageLinks";
 const Sidebar = ({ sidebarOpen, closeSidebar }) => {

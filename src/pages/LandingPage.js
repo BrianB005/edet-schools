@@ -9,6 +9,10 @@ import { BsArrowRight } from "react-icons/bs";
 import NavbarTwo from "../components/NavbarTwo";
 import { Link } from "react-router-dom";
 import Sidebar from "../components/Sidebar";
+import LandingSection2 from "../components/LandingSection2";
+import LandingSection3 from "../components/LandingSection3";
+import LandingSection4 from "../components/LandingSection4";
+import Footer from "../components/Footer";
 const LandingPage = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const closeSidebar = () => {
@@ -53,7 +57,18 @@ const LandingPage = () => {
           </Images>
         </Right>
       </ContentWrapper>
-      <ContentWrapper></ContentWrapper>
+      <SectionWrapper>
+        <LandingSection2 />
+      </SectionWrapper>
+      <SectionWrapper>
+        <LandingSection3 />
+      </SectionWrapper>
+      <SectionWrapper>
+        <LandingSection4 />
+      </SectionWrapper>
+      <FooterWrapper>
+        <Footer />
+      </FooterWrapper>
     </Wrapper>
   );
 };
@@ -69,6 +84,26 @@ const Navbars = styled.div`
   display: flex;
   flex-direction: column;
 `;
+const SectionWrapper = styled.div`
+  /* @media screen and (min-width: 1150px) {
+    padding: 30px 100px;
+  } */
+  @media screen and (max-width: 1150px) {
+    padding: 20px;
+  }
+
+  @media screen and (min-width: 1150px) {
+    padding: 30px 100px;
+  }
+`;
+const FooterWrapper = styled.div`
+  @media screen and (min-width: 1150px) {
+    padding: 10px 100px;
+  }
+  @media screen and (max-width: 1150px) {
+    padding: 10px 20px;
+  }
+`;
 const ContentWrapper = styled.div`
   width: 100%;
   height: 100%;
@@ -78,6 +113,7 @@ const ContentWrapper = styled.div`
   @media screen and (max-width: 1150px) {
     flex-direction: column;
     padding: 0 20px;
+    /* margin-bottom: 20px; */
   }
 `;
 // const LargeImage = styled.img`
