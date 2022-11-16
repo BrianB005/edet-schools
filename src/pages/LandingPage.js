@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import image3 from "../images/image3.jpg";
 import image6 from "../images/image6.jpg";
@@ -14,6 +14,8 @@ import LandingSection3 from "../components/LandingSection3";
 import LandingSection4 from "../components/LandingSection4";
 import Footer from "../components/Footer";
 import FeaturedSchool from "../components/FeaturedSchool";
+import { useDispatch, useSelector } from "react-redux";
+import { getFeatured } from "../redux/actions/schoolActions";
 const LandingPage = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const closeSidebar = () => {
@@ -22,6 +24,12 @@ const LandingPage = () => {
   const openSidebar = () => {
     setSidebarOpen(!sidebarOpen);
   };
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getFeatured());
+    // eslint-disable-next-line
+  }, []);
+  const schools = useSelector((state) => state.featured);
   return (
     <Wrapper>
       <Navbars>
@@ -71,15 +79,11 @@ const LandingPage = () => {
         <Featured>
           <FeaturedTitle>Featured Schools</FeaturedTitle>
           <FeaturedSchools>
-            <SingleFeaturedSchool>
-              <FeaturedSchool />
-            </SingleFeaturedSchool>
-            <SingleFeaturedSchool>
-              <FeaturedSchool />
-            </SingleFeaturedSchool>
-            <SingleFeaturedSchool>
-              <FeaturedSchool />
-            </SingleFeaturedSchool>
+            {schools?.schools?.map((school) => (
+              <SingleFeaturedSchool>
+                <FeaturedSchool key={school._id} {...school} />
+              </SingleFeaturedSchool>
+            ))}
           </FeaturedSchools>
         </Featured>
       </SectionWrapper>

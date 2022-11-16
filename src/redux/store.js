@@ -3,7 +3,7 @@ import thunk from "redux-thunk";
 
 import { getMyBlogsReducer } from "./reducers/blogReducers";
 import { getSchoolEventsReducer } from "./reducers/eventReducers";
-import { searchSchoolsReducer } from "./reducers/schoolReducers";
+import { getFeaturedSchoolsReducer, searchSchoolsReducer } from "./reducers/schoolReducers";
 
 // import { getAllSchoolsReducer } from "./reducers/schoolReducers";
 import {
@@ -18,7 +18,8 @@ const reducers = combineReducers({
   blogs: getMyBlogsReducer,
   schools: searchSchoolsReducer,
   updateUser: updateUserReducer,
-  events:getSchoolEventsReducer
+  events: getSchoolEventsReducer,
+  featured: getFeaturedSchoolsReducer,
 });
 const initialState = {
   signInInfo: {

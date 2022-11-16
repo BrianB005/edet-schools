@@ -1,17 +1,12 @@
 import React from "react";
 import styled from "styled-components";
-const FeaturedSchool = () => {
+const FeaturedSchool = ({ logo, motto, description }) => {
   return (
     <Wrapper>
-      <Image src="https://res.cloudinary.com/dpdtbtb87/image/upload/v1668338052/vlaxhuyyxnxbj38sjv3g.jpg" />
+      <Image src={logo?.url} />
       <VerticalWrapper>
-        <Motto>In the end we all get what we deserve</Motto>
-        <Description>
-          Schools can celebrate their accomplishments, showcase their challenges
-          to interested stakeholders like former pupils, inform parents on their
-          events and activities calendar for the year as well as let the world
-          know of their future plans.
-        </Description>
+        <Motto>{motto}</Motto>
+        <Description>{description}</Description>
       </VerticalWrapper>
     </Wrapper>
   );
